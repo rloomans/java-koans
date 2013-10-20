@@ -37,11 +37,11 @@ public class AboutAutoboxing {
 	public void allPrimitivesCanBeAutoboxed() {
 		List<Double> doubleList = new ArrayList<Double>();
 		doubleList.add(0, new Double(42));
-		assertEquals(doubleList.get(0), 42);
+		assertEquals(doubleList.get(0), 42.0);
 
 		List<Long> longList = new ArrayList<Long>();
 		longList.add(0, new Long(42));
-		assertEquals(longList.get(0), 42);
+		assertEquals(longList.get(0), 42L);
 
 		List<Character> characterList = new ArrayList<Character>();
 		characterList.add(0, new Character('z'));

@@ -31,11 +31,11 @@ public class AboutSerialization {
 		
 		// deserialize
 		ObjectInputStream is = null;
-		try{
+		try {
 			is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 			String otherString = (String)is.readObject();
-			assertEquals(otherString, __);
-		}finally{
+			assertEquals(otherString, "Hello world");
+		} finally{
 			closeStream(is);
 		}
 	}
@@ -60,11 +60,11 @@ public class AboutSerialization {
 		os.close();
 		
 		ObjectInputStream is = null;
-		try{
+		try {
 			is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 			Starship onTheOtherSide = (Starship)is.readObject();
-			assertEquals(onTheOtherSide.maxWarpSpeed, __);
-		}finally{
+			assertEquals(onTheOtherSide.maxWarpSpeed, 9);
+		} finally{
 			closeStream(is);
 		}
 	}
@@ -104,11 +104,11 @@ public class AboutSerialization {
 		os.close();
 		
 		ObjectInputStream is = null;
-		try{
+		try {
 			is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 			Car deserializedCar = (Car)is.readObject();
-			assertEquals(deserializedCar.engine.type, __);
-		}finally{
+			assertEquals(deserializedCar.engine.type, "diesel");
+		} finally {
 			closeStream(is);
 		}
 	}
@@ -132,7 +132,7 @@ public class AboutSerialization {
 			marker += "Exception";
 		}
 		os.close();
-		assertEquals(marker, __);
+		assertEquals(marker, "Start Exception");
 	}
 	
 	@SuppressWarnings("serial")
@@ -160,11 +160,11 @@ public class AboutSerialization {
 		os.close();
 		
 		ObjectInputStream is = null;
-		try{
+		try {
 			is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 			Dog otherDog = (Dog)is.readObject();
-			assertEquals(otherDog.name, __);
-		}finally{
+			assertEquals(otherDog.name, "snoopy");
+		} finally {
 			closeStream(is);
 		}
 	}
@@ -192,17 +192,17 @@ public class AboutSerialization {
 		os.close();	
 		
 		ObjectInputStream is = null;
-		try{
+		try {
 			is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 			MilitaryPlane otherPlane = (MilitaryPlane)is.readObject();
 			// Does this surprise you?
-			assertEquals(otherPlane.name, __);
+			assertEquals(otherPlane.name, null);
 			
 			// Think about how serialization creates objects... 
 			// It does not use constructors! But if a parent object is not serializable
 			// it actually uses constructors and if the fields are not in a serializable class...
 			// unexpected things - like this - may happen
-		}finally{
+		} finally {
 			closeStream(is);
 		}
 	}
